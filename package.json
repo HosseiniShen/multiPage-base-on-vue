@@ -10,11 +10,8 @@
     "build": "node build/build.js && gulp replaceErrorSrc"
   },
   "dependencies": {
-    "animate.css": "^3.6.1",
     "axios": "^0.18.0",
-    "vue": "^2.5.2",
-    "vue-axios": "^2.1.1",
-    "wc-messagebox": "^1.9.9"
+    "vue": "^2.5.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

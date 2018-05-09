@@ -1,11 +1,14 @@
 # Introduction
 
-unlike vue single-page-application, This webpack configuration can help you build multi-page project, and solve corresponding questions.
+Unlike vue single-page-application, This webpack configuration can help you build multi-page project, and solve corresponding questions.
 
 # Main Configuration
 
 Every page consists of a html template、 an entry and a vue file.The glob can find all the template and entries to build your peoject,the final html will be named with the name of it's directory.
 
+exapmle:
+
+    home/index.js home/index.html home/index.vue ---> home.html
 
 # Usage
 
@@ -17,9 +20,9 @@ npm run build
 
 # FAQ
 
-1、compile slowly when the project becomes heavy.
+1、Compile slowly when the project becomes heavy.
 
-add configuration 'devDirectoryList' in the 'config/index.js' to solve recompile slowly;
+Add the configuration called 'devDirectoryList' in the 'config/index.js' to solve recompile slowly;
 
 <pre>
 dev: {
@@ -50,28 +53,28 @@ dev: {
 
 2、The image in corresponding html can't be found because of the error relative path after building.
 
-    the error of path always happens in file which more than one layers of directory.
+the error of path always happens in file which more than one layers of directory.
 
-    I have no food idea but to replace the error relative path by using the plugin called 'gulp-replace';if you have a better solution, please make sure to tell me.
+I have no good idea but to replace the error relative path by using the plugin called 'gulp-replace';if you have a better solution, please make sure to tell me.Here is my email address:sxx594@163.com
 
-    <pre>
-    let replaceDocList = glob.sync('./issue/static/js/*/**/*.js');
+<pre>
+let replaceDocList = glob.sync('./issue/static/js/*/**/*.js');
 
-    gulp.task('replaceErrorSrc', function () {
-        replaceDocList.forEach((docItem) => {
+gulp.task('replaceErrorSrc', function () {
+    replaceDocList.forEach((docItem) => {
 
-            let relativeUrl = docItem.split('./issue/static/js/')[1]
-            .replace(/[^\/]/g, '')
-            .replace(/[\/]/g, '../');
+        let relativeUrl = docItem.split('./issue/static/js/')[1]
+        .replace(/[^\/]/g, '')
+        .replace(/[\/]/g, '../');
 
-            gulp.src(docItem)
-            .pipe(replace('static/img/', (match) => {
-                console.log(chalk.yellow(
-                    `Tip: have replaced one in ${docItem}`
-                ))
-                return `${relativeUrl}static/img/`;
-            }))
-            .pipe(gulp.dest(docItem.substr(0, docItem.lastIndexOf('/') + 1)))
-        });
-    })
-    </pre>
+        gulp.src(docItem)
+        .pipe(replace('static/img/', (match) => {
+            console.log(chalk.yellow(
+                `Tip: have replaced one in ${docItem}`
+            ))
+            return `${relativeUrl}static/img/`;
+        }))
+        .pipe(gulp.dest(docItem.substr(0, docItem.lastIndexOf('/') + 1)))
+    });
+})
+</pre>
