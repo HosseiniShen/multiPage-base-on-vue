@@ -1,42 +1,19 @@
 import axios from 'axios'
 import config from './api'
 
-//获取知识标签
+//get请求
 export const getKnowledgeTag =(params)=>{
     config.method = "GET";
     config.params = params;
-    config.url = '/content/knowledge/classification';
+    config.url = '/content/1';
     return axios(config).then(res => res && res.data);
 }
 
-//获取知识内容列表
-export const getKnowledgeList =(params)=>{
-    config.method = "GET";
-    config.params = params;
-    config.url = '/content/knowledge';
-    return axios(config).then(res => res && res.data);
-}
-
-// 获取知识关键字
-export const getKeywords =(params)=>{
-    config.method = "GET";
-    config.params = params;
-    config.url = '/content/knowledge/keyword';
-    return axios(config).then(res => res && res.data);
-}
-
-//获取知识内容明细
-export const getKnowledgeDetails =(params)=>{
-    config.method = "GET";
-    config.params = params;
-    config.url = '/content/knowledge/detail/';
-    return axios(config).then(res => res && res.data);
-}
-
-//获取知识关键字列表
-export const getKeywordList =(params)=>{
-    config.method = "GET";
-    config.params = params;
-    config.url = '/content/knowledge/_search';
+//post
+export const register = (data) => {
+    config.method = "POST";
+    config.params = {};
+    config.data = JSON.stringify(data);
+    config.url = '/security/2';
     return axios(config).then(res => res && res.data);
 }

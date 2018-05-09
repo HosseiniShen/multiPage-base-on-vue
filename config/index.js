@@ -37,7 +37,7 @@ module.exports = {
     cssSourceMap: true,
 
     //开发指定目录(为保证compile速度，目录最多设置5个, list为空则默认compile所有模块)
-    devDirectoryList: ['live/specialist']
+    devDirectoryList: ['common', 'common/index']
   },
 
   build: {
