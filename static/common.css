@@ -1,0 +1,11 @@
+* { margin:0; padding:0;}
+body { background-color:#f3efee; font-family:Arial,"Helvetica Neue",Helvetica,sans-serif; font-size:16px; color:#333;}
+h1, h2, h3, h4, h5, h6, p { margin:0; font-weight:normal;}
+i, em { font-style:normal;}
+a { color:#fff;}
+a:hover, a:focus, a:active, a:visited { text-decoration:none;}
+ul { margin-bottom:0;}
+li { list-style:none;}
+label { font-weight:normal;}
+input:hover, input:focus { outline:none;}
+input { line-height:normal !important;}
